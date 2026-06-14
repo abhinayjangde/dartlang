@@ -9,13 +9,13 @@ class Person {
   }
 }
 
-Future<String> getDate() {
-  return Future.delayed(Duration(seconds: 3), () => "Data Received");
+Future<int> getDate() {
+  return Future.delayed(Duration(seconds: 3), () => 42);
 }
 
 Future<void> main() async {
   // async code
-  String data = await getDate();
+  int data = await getDate();
   print(data);
   print("Program End");
 }
