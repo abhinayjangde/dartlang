@@ -1,21 +1,10 @@
-class Person {
-  String name;
-  int age;
+import 'dart:collection';
 
-  Person(this.name, this.age);
+main() {
+  Queue<String> queue = new Queue<String>();
 
-  void introduce() {
-    print("my name is $name");
-  }
-}
+  queue.add("Abhi");
+  queue.add("Aditi");
 
-Future<int> getDate() {
-  return Future.delayed(Duration(seconds: 3), () => 42);
-}
-
-Future<void> main() async {
-  // async code
-  int data = await getDate();
-  print(data);
-  print("Program End");
+  print(queue);
 }
