@@ -12,21 +12,67 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var show = false;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                show = !show;
-              });
-            },
-            child: show ? const Text("Hide") : const Text("Show"),
+        appBar: AppBar(title: const Text("Hello")),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 200,
+                        color: Colors.blue,
+                        margin: EdgeInsets.all(8.0),
+                      ),
+                      Container(
+                        height: 200,
+                        color: Colors.red,
+                        margin: EdgeInsets.all(8.0),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  height: 200,
+                  color: Colors.redAccent,
+                  margin: EdgeInsets.all(8.0),
+                ),
+                Container(
+                  height: 200,
+                  color: Colors.green,
+                  margin: EdgeInsets.all(8.0),
+                ),
+                Container(
+                  height: 200,
+                  color: Colors.orange,
+                  margin: EdgeInsets.all(8.0),
+                ),
+                Container(
+                  height: 200,
+                  color: Colors.pink,
+                  margin: EdgeInsets.all(8.0),
+                ),
+                Container(
+                  height: 200,
+                  color: Colors.black,
+                  margin: EdgeInsets.all(8.0),
+                ),
+                Container(
+                  height: 200,
+                  color: Colors.yellow,
+                  margin: EdgeInsets.all(8.0),
+                ),
+              ],
+            ),
           ),
         ),
       ),
