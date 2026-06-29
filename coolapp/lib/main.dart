@@ -12,7 +12,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Demo App",
-      theme: ThemeData(primarySwatch: Colors.amber),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headlineMedium: TextStyle(
+            fontSize: 30,
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: const DashboardScreen(),
     );
   }
@@ -23,33 +32,25 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("hello")),
+      appBar: AppBar(
+        title: Text("hello", style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.lightGreen,
+      ),
       body: Column(
         children: [
-          Row(
-            children: [
-              Container(width: 50, height: 200, color: Colors.red),
-              Container(width: 50, height: 200, color: Colors.green),
-              Expanded(
-                child: Container(
-                  width: 50,
-                  height: 200,
-                  color: Colors.blueGrey,
-                  child: Center(
-                    child: Text(
-                      "Expanded Widget",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
-                ),
-              ),
-              Container(width: 50, height: 200, color: Colors.amber),
-            ],
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              "hello world",
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ),
-          Row(
-            children: [
-              Padding(padding: EdgeInsets.only(left: 20), child: Text("hello")),
-            ],
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              "hello world",
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ),
         ],
       ),
