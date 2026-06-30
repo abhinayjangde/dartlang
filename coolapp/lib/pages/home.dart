@@ -12,24 +12,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // var time = DateTime.now();
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      appBar: AppBar(
+        title: Text('Home Page'),
+        backgroundColor: Colors.blueGrey,
+        foregroundColor: Colors.white,
+      ),
+      body: GridView.count(
+        crossAxisCount: 3,
         children: [
-          Text("Select date", style: TextStyle(fontSize: 25)),
-          ElevatedButton(
-            onPressed: () async {
-              DateTime? datePicker = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2020),
-                lastDate: DateTime.now(),
-              );
-
-              print(datePicker);
-            },
-            child: Text("show"),
-          ),
+          Container(color: Colors.red),
+          Container(color: Colors.orange),
+          Container(color: Colors.yellow),
+          Container(color: Colors.green),
+          Container(color: Colors.blue),
+          Container(color: Colors.indigo),
+          Container(color: Colors.purple),
+          Container(color: Colors.pink),
         ],
       ),
     );
