@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coolapp/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,38 +23,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const DashboardScreen(),
-    );
-  }
-}
-
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("hello", style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.lightGreen,
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              "hello world",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              "hello world",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ),
-        ],
-      ),
+      home: const HomePage(),
     );
   }
 }
