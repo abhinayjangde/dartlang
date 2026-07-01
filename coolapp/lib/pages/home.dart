@@ -1,4 +1,6 @@
+import 'package:coolapp/pages/second.dart';
 import 'package:flutter/material.dart';
+import '../widgets/rounded_btn.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,13 +10,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var email = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(),
       drawer: myDrawer(),
-      body: Text("hello"),
+      body: const RoundedBtn(),
     );
   }
 }
