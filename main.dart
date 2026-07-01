@@ -4,12 +4,9 @@ Future<String> getName() {
   });
 }
 
-void main() {
+void main() async {
   print("start");
-
-  getName().then((name) {
-    print(name);
-  });
-
+  var name = await getName();
+  print(name);
   print("done");
 }
