@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dartlang/pages/home.dart';
+import 'package:dartlang/screens/home.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'hello world',
-      home: HomePage(),
+      title: 'Todo App',
+      home: Home(),
     );
   }
 }
