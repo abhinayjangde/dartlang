@@ -6,7 +6,7 @@ class TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: ListTile(
         onTap: () {},
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
