@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: hasura
+      POSTGRES_PASSWORD: hasura123
+      POSTGRES_DB: chatapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  hasura:
+    image: hasura/graphql-engine:v2.43.0
+    restart: always
+    depends_on:
+      - postgres
+      - auth-server
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://hasura:hasura123@postgres:5432/chatapp
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+      HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256","key":"my-super-secret-jwt-key-thats-at-least-32-chars"}'
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+    ports:
+      - "8080:8080"
+
+  auth-server:
+    build: ./auth-server
+    restart: always
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://hasura:hasura123@postgres:5432/chatapp
+      JWT_SECRET: my-super-secret-jwt-key-thats-at-least-32-chars
+      PORT: 4000
+
+volumes:
+  postgres_data:
